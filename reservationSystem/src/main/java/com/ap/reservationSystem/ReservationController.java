@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -44,6 +45,11 @@ public class ReservationController {
 		reservationRepos.deleteById(id);
 	}
 	
+	@PutMapping("/modifyReservation")
+	public Reservation modifyReservation(@RequestBody Reservation modifyReservation) {
+		return reservationRepos.save(modifyReservation);
+	}
+	
 	/* reservations by name (plural because they can be with the same name) */
 	@GetMapping("/reservations/{name}")
 	public List<ReservationDTO> getReservationsByNameReservation(@PathVariable String name) {
@@ -64,7 +70,7 @@ public class ReservationController {
 	
 	/* reservations between 2 date */
 	@GetMapping("/reservations/days/{dateFrom}/{dateTo}")
-	public List<ReservationDTO> getReservationsOfADay(@PathVariable Date dateFrom, @PathVariable Date dateTo) {
+	public List<ReservationDTO> getReservationsBetweenDates(@PathVariable Date dateFrom, @PathVariable Date dateTo) {
 		return reservationRepos.getReservationsBetweenDates(dateFrom, dateTo);
 	}
 	
