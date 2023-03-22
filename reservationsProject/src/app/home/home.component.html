@@ -1,0 +1,90 @@
+<div id="body" class="grid-container">
+  <div id="inputContainer">
+    <mat-label><h1>Insert a reservation</h1></mat-label>
+
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Ex. Fortunelli...</mat-label>
+      <input matInput placeholder="Ex. Fortunelli..." #nameReservation>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Ex. 2023/01/01</mat-label>
+      <input matInput placeholder="Ex. 2023/01/01" #dateReservation>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Ex. 19</mat-label>
+      <input matInput placeholder="Ex. 19" #hoursReservation>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Ex. 9</mat-label>
+      <input matInput placeholder="Ex. 9" #fieldReservation>
+    </mat-form-field>
+
+    <button id="clearButtonI" mat-raised-button color="primary" (click)="clearInsertFields()">Delete data</button>
+
+    <button mat-raised-button color="primary" (click)="createReservation()">Insert reservation</button>
+  </div>
+
+  <div id="deleteContainer">
+
+    <mat-label><h1>Delete a reservation</h1></mat-label>
+
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Ex. Fortunelli...</mat-label>
+      <input matInput placeholder="Ex. Fortunelli..." #nameReservationD>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Ex. 2023/01/01</mat-label>
+      <input matInput placeholder="Ex. 2023/01/01" #dateReservationD>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Ex. 19</mat-label>
+      <input matInput placeholder="Ex. 19" #hoursReservationD>
+    </mat-form-field>
+
+    <button id="clearButtonD" mat-raised-button color="link" (click)="clearDeleteFields()">Delete data</button>
+    <button mat-raised-button color="link" (click)="deleteReservationByNameAndDate()">Delete reservation</button>
+  </div>
+
+</div>
+<div id="body" class="tableContainer">
+
+  <table mat-table [dataSource]="datasource" class="mat-elevation-z8">
+
+    <ng-container matColumnDef="idReservation">
+      <th mat-header-cell *matHeaderCellDef> Id </th>
+      <td mat-cell *matCellDef="let element"> {{element.idReservation}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="nameReservation">
+      <th mat-header-cell *matHeaderCellDef> Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.nameReservation}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="dateReservation">
+      <th mat-header-cell *matHeaderCellDef> Date </th>
+      <td mat-cell *matCellDef="let element"> {{element.dateReservation}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="hoursReservation">
+      <th mat-header-cell *matHeaderCellDef> Hours </th>
+      <td mat-cell *matCellDef="let element"> {{element.hoursReservation | pipeHours}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="fieldReservation">
+      <th mat-header-cell *matHeaderCellDef> Field </th>
+      <td mat-cell *matCellDef="let element"> {{element.fieldReservation}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  <br>
+  <button mat-raised-button color="accent" (click)="navigateUpdateReservation()">Go to update Reservation</button>
+
+</div>
+

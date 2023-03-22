@@ -1,0 +1,27 @@
+<div id="bodyUpdate" class="updateContainer">
+  <mat-label><h1>Update a reservation</h1></mat-label>
+
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Ex. Fortunelli...</mat-label>
+    <input matInput placeholder="Ex. Fortunelli..." #nameReservationU value="{{nameRes}}">
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Ex. 2023/01/01</mat-label>
+    <input matInput [disabled]="isDisabledDate" placeholder="Ex. 2023/01/01" value="{{dateReservationU}}">
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Ex. 19</mat-label>
+    <input matInput [disabled]="isDisabledHours" placeholder="Ex. 19" value="{{hoursReservationU}}">
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Ex. 9</mat-label>
+    <input matInput [disabled]="isDisabledField" placeholder="Ex. 9" value="{{fieldReservationU}}">
+  </mat-form-field>
+
+  <button id="buttonSearchRes" mat-raised-button color="accent" (click)="getReservationByName(nameReservationU.value)">Search a reservation</button>
+  <button id="buttonUpdateRes" mat-raised-button color="warn" (click)="modifyReservationByName()">Update a reservation</button>
+  <button mat-raised-button color="primary" (click)="navigateBack()">Back to home</button>
+</div>

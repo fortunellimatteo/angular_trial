@@ -1,0 +1,17 @@
+.updateContainer{
+    margin: auto;
+}
+
+#bodyUpdate {
+    width: 900px;
+    margin:auto;
+    margin-top: 50px;
+}
+
+#buttonSearchRes{
+    margin-right: 10px;
+}
+
+#buttonUpdateRes{
+    margin-right: 10px;
+}
